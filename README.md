@@ -1,11 +1,14 @@
 # storcycle_api
-###StorCycle API Examples
+
+[Swagger Documentation](https://localhost/apidocs/)
+
+## StorCycle API Examples
 
 This repository contains examples for interacting with the StorCycle API. These general examples require either creation of the example directory tree, or adjusting variables to suit the local system.
 
 To use the examples, client code must first be generated in the desired language.
 
-####Python:
+### Python:
 
 Download a client generator plugin for your local IDE and install. Note that while the OpenAPI Generator plugin by Jim Schubert was used to generate the example Python client, any client generator should be adequate.
 

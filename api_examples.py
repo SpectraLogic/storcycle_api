@@ -43,7 +43,7 @@ email_on_complete = 'example@example.com'
 sleep_time_seconds = 10
 
 # Note: If the example directory tree is not created, these example variables will need to be changed.
-example_directory_root = "C:\\ApiPythonExampleData"
+example_directory_root = os.path.join(os.path.abspath(os.sep), "ApiPythonExampleData")
 
 # These should be distinct file paths available on the host machine running StorCycle.
 example_source_share_optional = os.path.join(example_directory_root, "example-source-storage-location-optional")
@@ -219,7 +219,7 @@ def make_instance_scan_project(include_optional):
         return ApiProjectScan(
             description='A description of the scan project',
             share='Example-Source-Optional-Fields',
-            working_directory='\\WorkingDirectory',
+            working_directory=os.path.join(os.path.abspath(os.sep), 'WorkingDirectory'),
             tags=[
                 'tag'
             ],
