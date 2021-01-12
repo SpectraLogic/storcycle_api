@@ -1,8 +1,8 @@
 # storcycle_api
 
-[Swagger Documentation](https://localhost/apidocs/)
+Swagger Documentation - https://localhost/apidocs
 
-[openapi.yaml](https://localhost/openapi.yaml)
+openapi.yaml - https://localhost/openapi.yaml
 
 ## StorCycle API Examples
 
