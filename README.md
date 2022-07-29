@@ -16,6 +16,12 @@ To use the examples, client code must first be generated in the desired language
 
 Download and navigate to the openapi.yaml file from which the client will be generated.
 
+*NOTE: Pre-generated Python clients for evaluation are available at: 
+[releases](https://github.com/SpectraLogic/storcycle_api/releases/).
+Users are advised to generate OpenAPI clients for production releases, 
+to ensure that client software uses the latest API.*
+
+
 **Command Line:**
 
 Download the open api generator [here](https://openapi-generator.tech/docs/installation/). In the command line terminal locate the openapi.yaml file and generate the client code in a temporary (or your desired) directory:
