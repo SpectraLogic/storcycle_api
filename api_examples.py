@@ -517,6 +517,34 @@ def example_api_get_project():
         except ApiException as e:
             print("Exception when calling ProjectApi->list_projects (example GET list of projects): %s\n" % e)
 
+def example_api_get_jobs():
+    #  Set the configuration
+    configuration = openapi_client.Configuration(
+        host=example_host,
+    )
+    configuration.verify_ssl = False
+    configuration.ssl_ca_cert = None
+    configuration.assert_hostname = False
+    configuration.cert_file = None
+
+    #  Get an access token and add it to the configuration
+    with openapi_client.ApiClient(configuration) as api_client:
+        api_instance_auth = openapi_client.AuthenticationApi(api_client)
+        body_login = openapi_client.ApiCredentials(password=example_password, username=example_username)
+        api_response = api_instance_auth.login(body_login)
+        configuration.access_token = api_response.token
+
+        # Create a JobStatusAPI instance to make API commands
+        api_instance = openapi_client.JobStatusApi(api_client)
+
+        print("# Get five Job statuses")
+        try:
+            params = {"include_all": True, "limit": 5}
+            api_response = api_instance.list_all_jobs_status(**params)
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling JobStatusApi->list_all_jobs_status: %s\n" % e)
+
 # Runs each API call sequentially as to show workflow.
 def main():
     example_api_login()
@@ -528,6 +556,7 @@ def main():
     example_api_create_update_project_restore()
     example_api_get_storage_location()
     example_api_get_project()
+    example_api_get_jobs()
 
 if __name__ == '__main__':
     main()
