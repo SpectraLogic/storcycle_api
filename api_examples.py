@@ -50,6 +50,7 @@ example_source_share_optional = os.path.join(example_directory_root, "example-so
 example_source_share = os.path.join(example_directory_root, "example-source-storage-location")
 example_target_share_optional = os.path.join(example_directory_root, "example-target-storage-location-optional")
 example_target_share = os.path.join(example_directory_root, "example-target-storage-location")
+example_scan_working_directory = os.path.join(os.sep, "WorkingDirectory")
 
 example_include_directory = "IncludeDirectory"
 example_exclude_directory = "ExcludeDirectory"
@@ -219,19 +220,13 @@ def make_instance_scan_project(include_optional):
         return ApiProjectScan(
             description='A description of the scan project',
             share='Example-Source-Optional-Fields',
-            working_directory=os.path.join(os.path.abspath(os.sep), 'WorkingDirectory'),
+            working_directory=example_scan_working_directory,
             tags=[
                 'tag'
             ],
-            filter={"excludeDirectories": [example_exclude_directory],
-                    "minimumAge": "AnyAge", "includeDirectories": [example_include_directory]},
             schedule={"monthsOfYear": ["monthsOfYear", "monthsOfYear"], "period": "Now", "daysOfMonth": [0, 0],
                       "startMonth": 3, "startDay": 5, "startHour": 13, "startYear": 2021, "interval": 6,
                       "daysOfWeek": ["daysOfWeek", "daysOfWeek"], "startMinute": 33},
-            status={"name": "Example-Scan-Name", "nextRunTime": "2021-01-23T04:56:07.000Z",
-                    "createdBy": "Example User", "created": "2020-01-23T04:56:07.000Z",
-                    "lastSuccessfulJob": "2020-01-23T04:56:07.000Z", "lastJobRunTime": "2020-01-23T04:56:07.000Z",
-                    "updated": "2020-01-23T04:56:07.000Z", "conflictDetected": "2020-01-23T04:56:07.000Z"}
         )
     # Example create/update scan project request body with required fields
     else:
